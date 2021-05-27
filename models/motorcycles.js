@@ -1,9 +1,12 @@
 const connection = require('../infraestructure/database/connection')
 const repositories = require('../repositories/motorcycles')
+const Tables = require('../infraestructure/database/tables')
 
 class Motorcycles{
     post(values){
-        return repositories.post(values)
+        const valuesWithData = Tables.addDateToJson(values)
+
+        return repositories.post(valuesWithData)
     }
 
     getAll(){
