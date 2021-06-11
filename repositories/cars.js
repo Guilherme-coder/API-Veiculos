@@ -1,29 +1,34 @@
 const query = require('../infraestructure/database/queries')
 
 class Cars{
-    post(values){
+    async post(values){
         const sql = 'INSERT INTO Cars SET ?;'
-        return query(sql, values)
+        return await query(sql, values)
     }
 
-    getAll(){
+    async getAll(){
         const sql = 'SELECT * FROM Cars;'
-        return query(sql)
+        return await query(sql)
     }
 
-    getById(id){
+    async getById(id){
         const sql = 'SELECT * FROM Cars WHERE id=?;'
-        return query(sql, id)
+        return await query(sql, id)
     }
 
-    updateById(id, values){
+    async getByModel(model){
+        const sql = 'SELECT * FROM Cars WHERE model=?'
+        return await query(sql, model)
+    }
+
+    async updateById(id, values){
         const sql = `UPDATE Cars SET ? WHERE id=${id};`
-        return query(sql, values)
+        return await query(sql, values)
     }
 
-    deleteById(id){
+    async deleteById(id){
         const sql = 'DELETE FROM Cars WHERE id=?;'
-        return query(sql, id)
+        return await query(sql, id)
     }
 }
 

@@ -3,26 +3,29 @@ const repositories = require('../repositories/motorcycles')
 const Tables = require('../infraestructure/database/tables')
 
 class Motorcycles{
-    post(values){
+    async post(values){
         const valuesWithData = Tables.addDateToJson(values)
-
-        return repositories.post(valuesWithData)
+        return await repositories.post(valuesWithData)
     }
 
-    getAll(){
-        return repositories.getAll()
+    async getAll(){
+        return await repositories.getAll()
     }
 
-    getById(id){
-        return repositories.getById(id)
+    async getById(id){
+        return await repositories.getById(id)
     }
 
-    updateById(id, values){
-        return repositories.updateById(id, values)
+    async getByModel(model){
+        return await repositories.getByModel(model)
     }
 
-    deleteById(id){
-        return repositories.deleteById(id)
+    async updateById(id, values){
+        return await repositories.updateById(id, values)
+    }
+
+    async deleteById(id){
+        return await repositories.deleteById(id)
     }
 
 }

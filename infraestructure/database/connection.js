@@ -1,3 +1,5 @@
+// insira os dados do seu servidor mysql nesse arquivo
+
 const mysql = require('mysql')
 const connection = mysql.createConnection({
     host: 'localhost',

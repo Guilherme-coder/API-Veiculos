@@ -3,27 +3,30 @@ const repositorie = require('../repositories/cars')
 const Tables = require('../infraestructure/database/tables')
 
 class Cars{
-    post(values){
+    async post(values){
         const valuesWithData = Tables.addDateToJson(values)
-
-        return repositorie.post(valuesWithData)
+        return await repositorie.post(valuesWithData)
     }
 
-    getAll(){
-        return repositorie.getAll()        
+    async getAll(){
+        return await repositorie.getAll()        
     }
 
-    getById(id){
-        return repositorie.getById(id)
+    async getById(id){
+        return await repositorie.getById(id)
         
     }
 
-    updateById(id, values){
-        return repositorie.updateById(id, values)
+    async getByModel(model){
+        return await repositorie.getByModel(model)
     }
 
-    deleteById(id){
-        return repositorie.deleteById(id)
+    async updateById(id, values){
+        return await repositorie.updateById(id, values)
+    }
+
+    async deleteById(id){
+        return await repositorie.deleteById(id)
     }
 }
 
