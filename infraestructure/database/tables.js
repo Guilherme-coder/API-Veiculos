@@ -54,16 +54,8 @@ class Tables{
     addDateToJson(json){
         const string = JSON.stringify(json)
 
-        const year = moment().get('year')
-        const month = moment().get('month')
-        const day = moment().get('day')
-    
-        const hour = moment().get('hour')
-        const minute = moment().get('minute')
-        const second = moment().get('second')
-    
-        const datetime = `${year}-${month}-${day} ${hour}:${minute}:${second}`
-        
+        const datetime = moment().format("YYYY-MM-DD H:mm:ss")
+
         const stringJson = string.replace('}', `,"data": "${datetime}"\n}`)
 
         const finalJson = JSON.parse(stringJson)

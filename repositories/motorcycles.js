@@ -7,7 +7,7 @@ class Motorcycles{
     }
 
     async getAll(){
-        const sql = 'SELECT * FROM Motorcycles;'
+        const sql = 'SELECT * FROM Motorcycles ORDER BY data DESC;'
         return await query(sql)
     }
 
