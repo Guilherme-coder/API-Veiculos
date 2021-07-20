@@ -5,6 +5,7 @@ class Tables{
         this.connection = connection
         this.createTableCars()
         this.createTableMotorcycles()
+        this.createTableUsers()
     }
 
     createTableCars(){
@@ -50,6 +51,21 @@ class Tables{
             }else{
                 console.log('a tabela de motocicletas foi criada com sucesso');
             }
+        })
+    }
+
+    createTableUsers(){
+        const sql = `CREATE TABLE IF NOT EXISTS Users (
+                    id INT NOT NULL AUTO_INCREMENT,
+                    email VARCHAR(150) NOT NULL,
+                    password VARCHAR(25) NOT NULL,
+                    PRIMARY KEY(id)
+                    )`
+        this.connection.query(sql, err => {
+            if(err)
+                console.log(err);
+            else
+                console.log('a tabela de usuários foi criada com sucesso');
         })
     }
 
